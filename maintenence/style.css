@@ -24,4 +24,5 @@ text-align: center;
 }
 tfoot td {
   background-color: rgb(238, 238, 215);
+  color: black;
 }
