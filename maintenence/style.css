@@ -22,4 +22,6 @@ color: rgb(111, 111, 111);
 padding: 10px 20px;
 text-align: center;
 }
-
+tfoot td {
+  background-color: rgb(238, 238, 215);
+}
