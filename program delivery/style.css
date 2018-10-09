@@ -1,0 +1,24 @@
+#holder,#schedul_health{
+  text-align:center
+}
+.mainbox{
+  display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center
+}
+canvas{
+  display:inline-block
+}
+#schedul_health_label{
+  padding-left:50px;text-align:center;color:#337ab7;font-size:18px
+}
+#schedul_health{
+  padding-left:100px;color:#337ab7;font-size:22px
+}
+.new-col-class{
+  margin:15px;width:150
+}
+.category{
+  width:135px
+}
+a{
+  text-decoration:none;color:#337ab7
+}
