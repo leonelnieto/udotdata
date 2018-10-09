@@ -12,7 +12,7 @@ var fisYear,fisStartDate,fisEndDate;
 if ((today.getMonth() + 1)  <= 6) {
   //Its before July, print current year as fiscal year
 	fisYear = year;
-	//console.log("Fiscal Year:"+fiscalyear);
+	//console.log("Fiscal Year:"+fisYear);
 	//Set fiscal start date to last year july 1st
 	fisStartDate = new Date(year - 1, 6,1);
 	//console.log("Start Date:"+fisStartDate);
@@ -22,12 +22,12 @@ if ((today.getMonth() + 1)  <= 6) {
   } else {
 	//Its after July, print current year + 1 as fiscal year
   fisYear = today.getFullYear() + 1;
-	//console.log("Fiscal Year:"+fiscalyear);
+	//console.log("Fiscal Year:"+fisYear);
 	//Set fiscal start date to July st
 	fisStartDate = new Date(year,6,1);
 	//console.log("Start Date:"+fisStartDate);
 	//Set Fiscal End Date to current year july 1st.
-	fisEndDate = new Date(fiscalyear,5,30);
+	fisEndDate = new Date(fisYear,5,30);
 	//console.log("End Date:"+fisEndDate);
   }
 //Define queries
