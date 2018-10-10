@@ -29,7 +29,7 @@ if ((today.getMonth() + 1)  <= 6) {
 	//Set fiscal start date to July st
 	fisStartDate = new Date(year,6,1);
 	//console.log("Start Date:"+fisStartDate);
-	//Set Fiscal End Date to current year july 1st. 
+	//Set Fiscal End Date to current year july 1st.
 	fisEndDate = new Date(fiscalyear,5,30);
 	//console.log("End Date:"+fisEndDate);
   }
@@ -77,7 +77,7 @@ fetch(ExpendutiresData).then(function(response){
 						//trend = '<i class="fas fa-angle-double-up" style="color:red"></i>';
 					//}
 					//content += '<td>'+trend+'</td>
-					contetn +='</tr>';
+					content +='</tr>';
 					totalBudget += Number(Budget[i]["budget"]);
 					totalSpent += Number(Expenditures[i]["expenditures"]);
 				}
@@ -93,10 +93,10 @@ fetch(ExpendutiresData).then(function(response){
 					}
 				content += '<td>'+trend+'</td></tr></tfoot></tbody></table>';
 				$('#here_table').append(content);
-				
+
 			}).catch(function(err){
 				console.log(err);
-			});	
+			});
 	}).catch(function(err){
 	console.log(err);
 });

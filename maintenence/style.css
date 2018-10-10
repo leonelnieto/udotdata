@@ -26,3 +26,12 @@ tfoot td {
   background-color: rgb(238, 238, 215);
   color: black;
 }
+.datalinks {
+	text-align: center;
+	font-family: "Open Sans", "Helvetica", Arial, sans-serif;
+}
+.datalinks a, a:visited {
+	color: #2279a6;
+	font-size: 13px;
+    font-weight: 300;
+}
