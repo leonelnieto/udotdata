@@ -61,7 +61,7 @@ fetch(ExpendutiresData).then(function(response){
 				console.log(Expenditures);
 				console.log(Budget);
 				var content = "<table class='flat-table'><tbody>";
-				content += "<tr><th>Region</th><th>Budget</th><th>Spent</th><th>Difference</th><th>% $$ Burned</th><th>% Year Burned</th><th>Trend</th></tr>";
+				content += "<tr><th>Region</th><th>Budget</th><th>Spent</th><th>Difference</th><th>% $ Expended</th><th>% Year Lapsed</th><th>Trend</th></tr>";
 				for(var i=0; i< Expenditures.length;i++) {
 					difference = Number(Budget[i]["budget"]) - Number(Expenditures[i]["expenditures"]);
 					burned = Math.round((Number(Expenditures[i]["expenditures"])/ Number(Budget[i]["budget"]))*100);
@@ -69,14 +69,15 @@ fetch(ExpendutiresData).then(function(response){
 					content += '<td>'+formatter.format(Expenditures[i]["expenditures"])+'</td><td>'+formatter.format(difference)+'</td>';
 					content += '<td>'+burned+'%</td>';
 					content += '<td>'+yearBurned.toFixed(1)+'%</td>';
-					if(burned === yearBurned) {
-						trend = '<i class="fas fa-angle-double-right" style="color:yellow"></i>';
-					} else if(burned < yearBurned) {
-						trend = '<i class="fas fa-angle-double-down" style="color:green"></i>';
-					} else {
-						trend = '<i class="fas fa-angle-double-up" style="color:red"></i>';
-					}
-					content += '<td>'+trend+'</td></tr>';
+					//if(burned === yearBurned) {
+						//trend = '<i class="fas fa-angle-double-right" style="color:yellow"></i>';
+					//} else if(burned < yearBurned) {
+						//trend = '<i class="fas fa-angle-double-down" style="color:green"></i>';
+					//} else {
+						//trend = '<i class="fas fa-angle-double-up" style="color:red"></i>';
+					//}
+					//content += '<td>'+trend+'</td>
+					contetn +='</tr>';
 					totalBudget += Number(Budget[i]["budget"]);
 					totalSpent += Number(Expenditures[i]["expenditures"]);
 				}
