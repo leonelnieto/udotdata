@@ -1,2 +1,4 @@
 Cache test #1
-Chase txt has been loaded now we will text again. to see if this refreshes. 
+Chase txt has been loaded now we will text again. to see if this refreshes.
+I am reverting back to jsdelivr and using a tag in the url as such
+https://cdn.jsdelivr.net/gh/leonelnieto/udotdata@latest/cache.text
