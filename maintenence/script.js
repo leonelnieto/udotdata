@@ -68,7 +68,7 @@ fetch(ExpendutiresData).then(function(response){
 					content += '<tr><td>'+Expenditures[i]["region"]+'</td><td>'+formatter.format(Budget[i]["budget"])+'</td>';
 					content += '<td>'+formatter.format(Expenditures[i]["expenditures"])+'</td><td>'+formatter.format(difference)+'</td>';
 					content += '<td>'+burned+'%</td>';
-					content += '<td>'+yearBurned.toFixed(1)+'%</td>';
+					content += '<td>'+yearBurned.toFixed(0)+'%</td>';
 					//if(burned === yearBurned) {
 						//trend = '<i class="fas fa-angle-double-right" style="color:yellow"></i>';
 					//} else if(burned < yearBurned) {
