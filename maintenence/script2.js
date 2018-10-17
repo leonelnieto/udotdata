@@ -57,7 +57,7 @@ fetch(ExpendutiresDataSnow).then(function(response){
 				console.log(Expenditures);
 				console.log(Budget);
 				var content = "<table class='flat-table'><tbody>";
-				content += "<tr><th>Region</th><th>Budget</th><th>Spent</th><th>Difference</th><th></tr>";
+				content += "<tr><th>Region</th><th>Budget</th><th>Spent</th><th>Difference</th></tr>";
 				for(var i=0; i< Expenditures.length;i++) {
 					difference = Number(Budget[i]["budget"]) - Number(Expenditures[i]["expenditures"]);
 					// burned = Math.round((Number(Expenditures[i]["expenditures"])/ Number(Budget[i]["budget"]))*100);
