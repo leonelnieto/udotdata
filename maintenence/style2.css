@@ -8,7 +8,8 @@ Css Code for a cool looking, ass kicking, html table
   font-size: 115%;
   overflow: auto;
   width: auto;
-  margin: auto;
+  margin-left: auto; 
+  margin-right: auto;
 }
 th {
 background-color: rgb(112, 196, 105);
