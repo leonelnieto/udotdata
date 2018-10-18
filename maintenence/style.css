@@ -2,7 +2,7 @@
 Css Code for a cool looking, ass kicking, html table
 */
 .flat-table {
-  display: block;
+  margin: 0 auto;
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 115%;

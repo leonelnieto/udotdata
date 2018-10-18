@@ -68,7 +68,7 @@ fetch(ExpendutiresData).then(function(response){
 					content += '<tr><td>'+Expenditures[i]["region"]+'</td><td>'+formatter.format(Budget[i]["budget"])+'</td>';
 					content += '<td>'+formatter.format(Expenditures[i]["expenditures"])+'</td><td>'+formatter.format(difference)+'</td>';
 					content += '<td>'+burned+'%</td>';
-					content += '<td>'+yearBurned.toFixed(1)+'%</td>';
+					content += '<td>'+yearBurned.toFixed(0)+'%</td>';
 					//if(burned === yearBurned) {
 						//trend = '<i class="fas fa-angle-double-right" style="color:yellow"></i>';
 					//} else if(burned < yearBurned) {
@@ -83,7 +83,7 @@ fetch(ExpendutiresData).then(function(response){
 				}
 				content += '<tfoot><tr><td>Total Maintenance</td><td>'+formatter.format(totalBudget)+'</td>'
 				content += '<td>'+formatter.format(totalSpent)+'</td><td>'+formatter.format(totalBudget-totalSpent)+'</td>';
-				content += '<td>'+Math.round((totalSpent/totalBudget)*100)+'%</td><td>'+yearBurned.toFixed(1)+'%</td>';
+				content += '<td>'+Math.round((totalSpent/totalBudget)*100)+'%</td><td>'+yearBurned.toFixed(0)+'%</td>';
 				//if(Math.round((totalSpent/totalBudget)*100) === yearBurned) {
 				//		trend = '<i class="fas fa-angle-double-right" style="color:yellow"></i>';
 				//	} else if(Math.round((totalSpent/totalBudget)*100) < yearBurned) {
