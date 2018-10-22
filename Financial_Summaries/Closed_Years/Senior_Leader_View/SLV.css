@@ -1,0 +1,47 @@
+	h1 {font-family: helvetica;
+		   font-size: 13pt;
+		   color: #FFFFFF;}
+	.headbackground {background-color: #719BBE;}
+	.size {width: 90%; height: 27%;}
+	.left {text-align: left;
+			padding: 8px;}
+	.center {text-align: center;
+				padding: 8px;}
+	.right {text-align: right;
+				padding: 8px;}
+	.enMoney::before {
+	    content:"$";
+	}
+	.negMoney {
+	    color:red;
+text-align: right;
+				padding: 8px;
+	}
+
+	table#goodfairmetrics {
+		font-size:13px;
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		border-spacing: 0;
+		width: 100%;
+	}
+
+	#goodfairmetrics th {
+		border: 1px solid #ddd;
+		text-align: center;
+		padding: 8px;
+	}
+	
+	#goodfairmetrics td {
+		border: 1px solid #ddd;
+		padding: 8px;
+	}
+
+	#goodfairmetrics tr:nth-child(even){background-color: #f2f2f2}
+
+	#goodfairmetrics th {
+		padding-top: 11px;
+		padding-bottom: 11px;
+		background-color: #808080;
+		color: white;
+	}
