@@ -130,7 +130,7 @@
 		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
 		
-		<!--JKL - JS exception occurring because browser didn't know what "google" was - needed to reference Google's API-->
+		//<!--JKL - JS exception occurring because browser didn't know what "google" was - needed to reference Google's API-->
 		google.charts.load('current', {'packages':['corechart']});
 		google.charts.setOnLoadCallback(function() {
 		    getdata();
