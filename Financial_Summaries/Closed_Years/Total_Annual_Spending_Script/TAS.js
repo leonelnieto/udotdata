@@ -1,9 +1,6 @@
 		var date = Date.now();
 		var BudgetDataDS;
-		var DataTotalsDS;
-		var Budget_Data="https://dashboard.udot.utah.gov/resource/c9s4-gvqp.json?$query=SELECT%20group_id,groups,sum(current_budget)%20AS%20budget,sum(amount)%20AS%20expenditure,sum(revenue)%20AS%20revenue,sum(expense_budget_difference)%20AS%20difference%20WHERE%20fiscal_year=2017%20AND%20group_id%20in%20(%278111%27,%20%278112%27,%20%278105%27,%20%278114%27,%20%278115%27,%20%278116%27,%20%278121%27,%20%278130%27,%20%278132%27,%20%278133%27)%20AND%20starts_with(appropriation,%27X%27)%20AND%20(fund_id=%272800%27%20OR%20fund_id=%272820%27)%20AND%20account_type%20in%20(%2722%27,%20%2731%27,%20%2742%27) AND "+ date +" = "+ date + "%20GROUP%20BY%20group_id,groups%20ORDER%20BY%20group_id"
-		
-		var Data_Totals="https://dashboard.udot.utah.gov/resource/c9s4-gvqp.json?$query=SELECT%20sum(current_budget)%20AS%20budget,sum(amount)%20AS%20expenditure,sum(revenue)%20AS%20revenue,sum(expense_budget_difference)%20AS%20difference%20WHERE%20fiscal_year=2017%20AND%20group_id%20in%20(%278111%27,%20%278112%27,%20%278105%27,%20%278114%27,%20%278115%27,%20%278116%27,%20%278121%27,%20%278130%27,%20%278132%27,%20%278133%27)%20AND%20starts_with(appropriation,%27X%27)%20AND%20(fund_id=%272800%27%20OR%20fund_id=%272820%27)%20AND%20account_type%20in%20(%2722%27,%20%2731%27,%20%2742%27) AND "+ date +" = "+ date + ""	
+		var Budget_Data="https://dashboard.udot.utah.gov/resource/c9s4-gvqp.json?$query=SELECT fiscal_year,(sum(current_budget)-sum(estimated_revenue)) AS budget,sum(amount) AS expenditure,sum(revenue) AS revenue WHERE starts_with(appropriation,'X') AND (fund_id='2800' OR fund_id='2820') AND "+ date +" = "+ date + " GROUP BY fiscal_year ORDER BY fiscal_year DESC"	
 	
 		function getdata(){
 
@@ -18,99 +15,34 @@
 				}
 			};
 			
-			var xmlhttp2 = new XMLHttpRequest();
-
-			//Data Totals
-			xmlhttp2.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-					DataTotalsDS = JSON.parse(this.responseText);
-					//Call function to display values on table
-					setDataTotals();
-				}
-			};
 						
 			//Execute data calls
 			xmlhttp1.open("GET", Budget_Data, true);
 			xmlhttp1.send();
-			xmlhttp2.open("GET", Data_Totals, true);
-			xmlhttp2.send();
-			
+
 		}
 		
-		function setBudgetData(){
-			//Budget and Execution data at FY level of aggregation
-			document.getElementById("Group1").innerHTML = BudgetDataDS[0].groups;
-			document.getElementById("GroupID1").innerHTML = BudgetDataDS[0].group_id;
-			document.getElementById("Budget1").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[0].budget));
-			document.getElementById("Revenue1").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[0].revenue));
-			document.getElementById("Spent1").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[0].expenditure));
-			document.getElementById("Difference1").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[0].difference));
-			document.getElementById("Group2").innerHTML = BudgetDataDS[1].groups;
-			document.getElementById("GroupID2").innerHTML = BudgetDataDS[1].group_id;
-			document.getElementById("Budget2").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[1].budget));
-			document.getElementById("Revenue2").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[1].revenue));
-			document.getElementById("Spent2").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[1].expenditure));
-			document.getElementById("Difference2").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[1].difference));
-			document.getElementById("Group3").innerHTML = BudgetDataDS[2].groups;
-			document.getElementById("GroupID3").innerHTML = BudgetDataDS[2].group_id;
-			document.getElementById("Budget3").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[2].budget));
-			document.getElementById("Revenue3").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[2].revenue));
-			document.getElementById("Spent3").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[2].expenditure));
-			document.getElementById("Difference3").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[2].difference));
-			document.getElementById("Group4").innerHTML = BudgetDataDS[3].groups;
-			document.getElementById("GroupID4").innerHTML = BudgetDataDS[3].group_id;
-			document.getElementById("Budget4").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[3].budget));
-			document.getElementById("Revenue4").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[3].revenue));
-			document.getElementById("Spent4").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[3].expenditure));
-			document.getElementById("Difference4").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[3].difference));
-			document.getElementById("Group5").innerHTML = BudgetDataDS[4].groups;
-			document.getElementById("GroupID5").innerHTML = BudgetDataDS[4].group_id;
-			document.getElementById("Budget5").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[4].budget));
-			document.getElementById("Revenue5").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[4].revenue));
-			document.getElementById("Spent5").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[4].expenditure));
-			document.getElementById("Difference5").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[4].difference));
-			document.getElementById("Group6").innerHTML = BudgetDataDS[5].groups;
-			document.getElementById("GroupID6").innerHTML = BudgetDataDS[5].group_id;
-			document.getElementById("Budget6").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[5].budget));
-			document.getElementById("Revenue6").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[5].revenue));
-			document.getElementById("Spent6").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[5].expenditure));
-			document.getElementById("Difference6").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[5].difference));
-			document.getElementById("Group7").innerHTML = BudgetDataDS[6].groups;
-			document.getElementById("GroupID7").innerHTML = BudgetDataDS[6].group_id;
-			document.getElementById("Budget7").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[6].budget));
-			document.getElementById("Revenue7").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[6].revenue));
-			document.getElementById("Spent7").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[6].expenditure));
-			document.getElementById("Difference7").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[6].difference));
-			document.getElementById("Group8").innerHTML = BudgetDataDS[7].groups;
-			document.getElementById("GroupID8").innerHTML = BudgetDataDS[7].group_id;
-			document.getElementById("Budget8").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[7].budget));
-			document.getElementById("Revenue8").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[7].revenue));
-			document.getElementById("Spent8").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[7].expenditure));
-			document.getElementById("Difference8").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[7].difference));
-			document.getElementById("Group9").innerHTML = BudgetDataDS[8].groups;
-			document.getElementById("GroupID9").innerHTML = BudgetDataDS[8].group_id;
-			document.getElementById("Budget9").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[8].budget));
-			document.getElementById("Revenue9").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[8].revenue));
-			document.getElementById("Spent9").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[8].expenditure));
-			document.getElementById("Difference9").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[8].difference));
-			document.getElementById("Group10").innerHTML = BudgetDataDS[9].groups;
-			document.getElementById("GroupID10").innerHTML = BudgetDataDS[9].group_id;
-			document.getElementById("Budget10").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[9].budget));
-			document.getElementById("Revenue10").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[9].revenue));
-			document.getElementById("Spent10").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[9].expenditure));
-			document.getElementById("Difference10").innerHTML = numberWithCommas(CurrencyFormatted(BudgetDataDS[9].difference));
-			
-			
-		}
 		
-		function setDataTotals(){
-			//Data Totals
-			document.getElementById("Budget11").innerHTML = numberWithCommas(CurrencyFormatted(DataTotalsDS[0].budget));
-			document.getElementById("Revenue11").innerHTML = numberWithCommas(CurrencyFormatted(DataTotalsDS[0].revenue));
-			document.getElementById("Spent11").innerHTML = numberWithCommas(CurrencyFormatted(DataTotalsDS[0].expenditure));
-			document.getElementById("Difference11").innerHTML = numberWithCommas(CurrencyFormatted(DataTotalsDS[0].difference));
-		}
-		
+		  function setBudgetData() {
+                //Budget and Execution data at FY level of aggregation - 2015 - 2017; if i is set to 0 FY 2018 is counted as well. 
+                var tr;
+                for (var i = 1; i < BudgetDataDS.length ; i++) {
+                    tr = $('<tr/>');
+                  tr.append("<td class=center>" + BudgetDataDS[i].fiscal_year + "</td>");
+tr.append("<td class=right>" + "$" + numberWithCommas(CurrencyFormatted(BudgetDataDS[i].budget)) + "</td>");
+tr.append("<td class=right>" + "$" + numberWithCommas(CurrencyFormatted(BudgetDataDS[i].revenue)) + "</td>");
+tr.append("<td class=right>" + "$" + numberWithCommas(CurrencyFormatted(BudgetDataDS[i].expenditure)) + "</td>");
+
+
+if (Number(BudgetDataDS[i].budget) + Number(BudgetDataDS[i].revenue) - Number(BudgetDataDS[i].expenditure) <= 0) { tr.append("<td class=negMoney>" + "$" + numberWithCommas(CurrencyFormatted(Number(BudgetDataDS[i].budget) + Number(BudgetDataDS[i].revenue) - Number(BudgetDataDS[i].expenditure))) + "</td>"); } 
+
+else { tr.append("<td class=right>" + "$" + numberWithCommas(CurrencyFormatted(Number(BudgetDataDS[i].budget) + Number(BudgetDataDS[i].revenue) - Number(BudgetDataDS[i].expenditure))) + "</td>");}
+                    $('table').append(tr);
+                }
+
+
+            }
+			
 		function CurrencyFormatted(amount) {
 			var i = parseFloat(amount);
 			if(isNaN(i)) { i = 0.00; }
@@ -129,15 +61,15 @@
 		function numberWithCommas(x) {
 		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
-		
+
 		//<!--JKL - JS exception occurring because browser didn't know what "google" was - needed to reference Google's API-->
 		google.charts.load('current', {'packages':['corechart']});
 		google.charts.setOnLoadCallback(function() {
 		    getdata();
 
 		    // interval to check socrata data for changes
-		    setInterval(function(){
-		        getdata();
-		    }, 10000);
+		   // setInterval(function(){
+		       // getdata();
+		    //}, 10000);
 
 		});
