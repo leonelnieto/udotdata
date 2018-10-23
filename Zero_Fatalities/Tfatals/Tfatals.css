@@ -1,0 +1,62 @@
+        body {
+            font-family: Helvetica;
+        }
+
+        .chart {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .title {
+            text-align: center;
+            font-weight: 800;
+            font-size: 500%;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 80%;
+        }
+
+        table,
+        th,
+        td {
+            margin: 0 auto;
+            border: 1px solid #888a85;
+            border-collapse: collapse;
+            padding: 4px;
+            text-align: center;
+            font-size: 90%;
+        }
+
+        .na {
+            background: #888a85;
+        }
+
+        #weightTotalError {
+            text-align: center;
+            font-size: 80%;
+            color: red;
+        }
+
+        table,
+        td {
+            font-family: Helvetica, "Trebuchet MS", Arial, sans-serif;
+            margin: 0 auto;
+            border: 1px solid #888a85;
+            border-collapse: collapse;
+            padding: 4px;
+            text-align: center;
+            font-size: 90%;
+        }
+
+        th {
+            font-family: Helvetica, "Trebuchet MS", Arial, sans-serif;
+            margin: 0 auto;
+            border: 1px solid #67818a;
+            border-collapse: collapse;
+            background-color: #c4d5db;
+            padding: 4px;
+            text-align: center;
+            font-size: 90%;
+        }
