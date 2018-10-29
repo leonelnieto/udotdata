@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <style>
+      body {
+        font-family: Helvetica, Arial, Sans-Serif;
+      }
+
+      #index {
+        font-size: 300%;
+        color: #008000;
+        text-decoration: none;
+      }
+
+      h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 38px;
+        font-weight: 700;
+        color: #333333
+      }
+
+      p {
+        font-family: Georgia, sans-serif;
+        font-size: 19px;
+        font-weight: 400;
+        color: #252525
+      }
+
+      html,
+      body {
+        margin: 0;
+      }
+
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      section.content {
+        flex: 1;
+      }
+
+      .dollar::before {
+        content: "$";
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <div class="flex-container">
+        <header>
+          <h3></h3>
+          <p></p>
+          <br />
+          <br />
+        </header>
+      <section class="content">
+        <center>
+          <div id="index"><span id="indexNum"></span></div>
+        </center>
+      </section>
+    </div>
+
+
+    <script>
+      (function() {
+        'use strict';
+
+        var url = 'https://dashboard.udot.utah.gov/resource/9656-dwmt.json?$select=count(trasactionid)&$where=transaction_date%20between%20%272017-07-01T00:00:00%27%20and%20%272018-06-30T23:59:59%27%20'
+
+        fetch(url)
+          .then(function(response) {
+
+            response.json()
+              .then(function(data) {
+                document.getElementById('indexNum').innerHTML = numberWithCommas(data[0].count_trasactionid)
+              });
+
+          })
+          .catch(function(error) {
+            console.log('error', error);
+          });
+
+      })();
+
+           function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+
+    </script>
+
+    </div>
+  </body>
+
+</html>

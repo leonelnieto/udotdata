@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <style>
+      body {
+        font-family: Helvetica, Arial, Sans-Serif;
+      }
+
+      #index {
+        font-size: 300%;
+        color: #3868b5;
+        text-decoration: none;
+      }
+
+      h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 38px;
+        font-weight: 700;
+        color: #333333
+      }
+
+      p {
+        font-family: Georgia, sans-serif;
+        font-size: 19px;
+        font-weight: 400;
+        color: #252525
+      }
+
+      html,
+      body {
+        margin: 0;
+      }
+
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      section.content {
+        flex: 1;
+      }
+
+      .dollar::before {
+        content: "$";
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <div class="flex-container">
+      <header>
+        <h3></h3>
+        <p></p>
+<br />
+<br />
+<br />
+        <br />
+        <br />
+      </header>
+      <section class="content">
+        <center>
+          <div id="index"><span id="indexNum"></span></div> Average number of days gained by the Limitations Program.
+        </center>
+      </section>
+    </div>
+
+
+    <script>
+      (function() {
+        'use strict';
+
+        var url = 'https://dashboard.udot.utah.gov/resource/ie6m-xuux.json?$select=avg(limitation_days_saved)'
+
+        fetch(url)
+          .then(function(response) {
+
+            response.json()
+              .then(function(data) {
+                document.getElementById('indexNum').innerHTML = Math.round(data[0].avg_limitation_days_saved * 10) / 10
+              });
+
+          })
+          .catch(function(error) {
+            console.log('error', error);
+          });
+
+      })();
+
+    </script>
+
+    </div>
+  </body>
+
+</html>
