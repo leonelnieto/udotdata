@@ -33,8 +33,8 @@ if ((today.getMonth() + 1)  <= 6) {
   }
 
 var domain = 'https://dashboard.udot.utah.gov/resource/';
-var dataset0 = 'ie6m-xuux.jsonn';
-var query0 = '?$query=SELECT avg(limitation_days_saved)';
+var dataset0 = 'ie6m-xuux.json';
+var query0 = '?$SELECT=avg(limitation_days_saved)';
 var RightofWayDataset = domain+dataset0+query0;
 
 (function() {
