@@ -1,3 +1,6 @@
+/*Java script file pulls data from socrata table
+and build and populates an html table */
+
 //Currency Magic
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
