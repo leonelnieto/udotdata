@@ -7,12 +7,20 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- href above is for testing, final href should be https://cdn.jsdelivr.net/gh/leonelnieto/udotdata@v#/folder/script.js -->
 <script src="https://cdn.jsdelivr.net/gh/leonelnieto/udotdata@663cb296c7fce98f0230e11a4a0c85b1b6cdb2e0/Right_of_Way/Acquisitions/Table_N_RegionActiveProject/script.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
+<!--JKL - JS exception occurring because browser didn't know what "google" was - needed to reference Google's API-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-  <div id="here_table" class="scroll-table"></div>
-<div class="datalinks">
-  <a href="https://dashboard.udot.utah.gov/resource/ijf2-cskg.json" title="Right of Way Dataset" target="new">Explore Details</a>
-</div>
+  <table class="size" border="2" rules="all">
+      <tr>
+          <th style="padding-left: 50px; padding-right: 50px">Region</td>
+          <th>Number of Projects</td>
+      </tr>
+
+
+  </table>
 <script>
 </body>
 </html>
