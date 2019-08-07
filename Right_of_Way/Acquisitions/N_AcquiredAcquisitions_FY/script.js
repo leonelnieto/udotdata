@@ -5,7 +5,7 @@ function numberWithCommas(x) {
 (function() {
   'use strict';
 
-  var url = 'https://dashboard.udot.utah.gov/resource/ijf2-cskg.json?$select=ownership_id&$where=fy_acquisition_cleared_date=%272018%27&parcel_id_duplicated=false&$limit=2000';
+  var url = 'https://dashboard.udot.utah.gov/resource/ijf2-cskg.json?$select=ownership_id&$where=fy_acquisition_cleared_date=%272019%27&parcel_id_duplicated=false&$limit=2000';
 
   fetch(url)
     .then((response) => {
