@@ -9,7 +9,7 @@ and build and populates an html table */
 
 (function() {
   'use strict';
-  var RightofWayDataset = "https://dashboard.udot.utah.gov/resource/c9s4-gvqp.json?$query=SELECT sum(amount) WHERE fiscal_year=%272018%27 AND account_type=%2722%27 AND expense_type IN ('6970','6971','6972','6987')"
+  var RightofWayDataset = "https://dashboard.udot.utah.gov/resource/c9s4-gvqp.json?$query=SELECT sum(amount) WHERE fiscal_year=%272019%27 AND account_type=%2722%27 AND expense_type IN ('6970','6971','6972','6987')"
 
   fetch(RightofWayDataset)
     .then(function(response) {
